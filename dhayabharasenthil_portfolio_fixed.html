@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dhayabharasenthil | Web Developer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #222;
+            z-index: 1000;
+        }
+
+        nav h2 {
+            color: #00ff88;
+            font-size: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at top right, #003d28 0%, transparent 35%),
+                #0a0a0a;
+        }
+
+        .hero-content {
+            animation: fadeUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #00ff88;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #999;
+            font-size: 18px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            margin: 8px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .secondary {
+            border: 1px solid #00ff88;
+            color: #00ff88;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.25);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #00ff88;
+        }
+
+        /* About */
+        .about-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 40px;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .about-box p {
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        /* Skills */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .skill {
+            background: #111;
+            border: 1px solid #222;
+            padding: 35px 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: #00ff88;
+        }
+
+        .skill .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .skill h3 {
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            color: #888;
+        }
+
+        /* Projects */
+        .project-box {
+            max-width: 800px;
+            margin: auto;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .project-box .emoji {
+            font-size: 60px;
+        }
+
+        .project-box h3 {
+            font-size: 28px;
+            margin: 20px 0 10px;
+            color: #00ff88;
+        }
+
+        .project-box p {
+            color: #888;
+        }
+
+        /* Contact */
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .github {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .github:hover {
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #222;
+            color: #666;
+        }
+
+        footer span {
+            color: #00ff88;
+        }
+
+        /* Animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <h2>Dhaya.</h2>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Hi, I'm <span>Dhayabharasenthil</span></h1>
+
+            <h2>Web Developer 💻</h2>
+
+            <p>
+                I'm a web developer who enjoys learning programming,
+                creating websites, and exploring new technologies.
+                I'm currently learning Python and improving my
+                JavaScript skills.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn primary">
+                    View Projects
+                </a>
+
+                <a href="https://github.com/Dhaya138" target="_blank" rel="noopener noreferrer" class="btn secondary">
+                    GitHub
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <div class="about-box">
+
+            <p>
+                Hello! I'm <strong>Dhayabharasenthil</strong>, a
+                passionate web developer. I enjoy coding, learning
+                new technologies and building creative websites.
+
+                <br><br>
+
+                I'm currently learning <strong>Python</strong> and
+                developing my skills in <strong>JavaScript</strong>.
+                Outside of coding, I enjoy playing and watching
+                <strong>cricket 🏏</strong>.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Skills -->
+    <section id="skills">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <div class="icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>
+                    Learning to create interactive and dynamic
+                    websites.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🐍</div>
+                <h3>Python</h3>
+                <p>
+                    Currently learning Python programming and
+                    developing my coding skills.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🌐</div>
+                <h3>Web Development</h3>
+                <p>
+                    Building responsive and modern websites
+                    using web technologies.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects">
+
+        <h2 class="section-title">
+            My <span>Projects</span>
+        </h2>
+
+        <div class="project-box">
+
+            <div class="emoji">🚀</div>
+
+            <h3>Projects Coming Soon</h3>
+
+            <p>
+                I'm currently learning and working on my first
+                projects. Check back soon to see what I build!
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2 class="section-title">
+            Let's <span>Connect</span>
+        </h2>
+
+        <div class="contact-box">
+
+            <p>
+                You can find my coding projects and future work
+                on GitHub.
+            </p>
+
+            <a href="https://github.com/Dhaya138" target="_blank" rel="noopener noreferrer" class="github">
+                💻 Visit My GitHub
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 <span>Dhayabharasenthil</span>.
+            Built with HTML & CSS.
+        </p>
+
+    </footer>
+
+</body>
+</html>
